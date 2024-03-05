@@ -1,25 +1,6 @@
 // script.js
 
 $(document).ready(function() {
-    // Prompt user to input their name on page load
-    Swal.fire({
-        title: 'Enter your name',
-        input: 'text',
-        inputAttributes: {
-            required: 'required'
-        },
-        showCancelButton: false,
-        confirmButtonText: 'Submit',
-        allowOutsideClick: false,
-        allowEscapeKey: false,
-        allowEnterKey: true
-    }).then((result) => {
-        if (result.isConfirmed) {
-            // Continue to fetch data and handle form submission
-            fetchData();
-        }
-    });
-
     // Function to fetch data from Google Sheets
     function fetchData() {
         fetch('https://script.google.com/macros/s/AKfycbw0n75DvLHhucb6PUzAqeCVFVWjk2HtD72W58MpkY0EstKv9Ror80YruyceZWdJbo-J/exec')
@@ -58,46 +39,86 @@ $(document).ready(function() {
             });
     }
 
-    // Handle form submission
-    $('#submitForm').submit(function(event) {
-        event.preventDefault(); // Prevent default form submission behavior
+    // Check if username is already stored in local storage
+    const storedUsername = localStorage.getItem('username');
+    if (storedUsername) {
+        // If username is stored, use it
+        sendMessage(storedUsername);
+    } else {
+        // Prompt user to input their name
+        promptForUsername();
+    }
 
-        // Fetch data from the form
-        const formData = new FormData(this);
-
-        // Submit form data to the server
-        fetch(this.action, {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => {
-            if (response.ok) {
-                // Clear the form input after successful submission
-                this.reset();
-                // Show success message using SweetAlert2
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Success!',
-                    text: 'Your message has been sent successfully.',
-                    timer: 3000,
-                    timerProgressBar: true
-                });
-                // Reload the page after a successful submission
-                setTimeout(() => {
-                    location.reload();
-                }, 3000);
-            } else {
-                throw new Error(`Form submission failed: ${response.statusText}`);
+    // Function to prompt user for username
+    function promptForUsername() {
+        Swal.fire({
+            title: 'Enter your name',
+            input: 'text',
+            inputAttributes: {
+                required: 'required'
+            },
+            showCancelButton: false,
+            confirmButtonText: 'Submit',
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            allowEnterKey: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Save username to local storage
+                localStorage.setItem('username', result.value);
+                // Send message with username
+                sendMessage(result.value);
             }
-        })
-        .catch(error => {
-            console.error('Error submitting form:', error);
-            // Display an error message using SweetAlert2
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'An error occurred while submitting the form. Please try again later.'
+        });
+    }
+
+    // Function to send message with username
+    function sendMessage(username) {
+        // Continue to fetch data and handle form submission
+        fetchData();
+
+        // Handle form submission
+        $('#submitForm').submit(function(event) {
+            event.preventDefault(); // Prevent default form submission behavior
+
+            // Fetch data from the form
+            const formData = new FormData(this);
+            formData.append('name', username); // Append username to form data
+
+            // Submit form data to the server
+            fetch(this.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Clear the form input after successful submission
+                    this.reset();
+                    // Show success message using SweetAlert2
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success!',
+                        text: 'Your message has been sent successfully.',
+                        timer: 3000,
+                        timerProgressBar: true
+                    });
+                    // Reload the page after a successful submission
+                    setTimeout(() => {
+                        location.reload();
+                    }, 3000);
+                } else {
+                    throw new Error(`Form submission failed: ${response.statusText}`);
+                }
+            })
+            .catch(error => {
+                console.error('Error submitting form:', error);
+                // Display an error message using SweetAlert2
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'An error occurred while submitting the form. Please try again later.'
+                });
             });
         });
-    });
+    }
 });
