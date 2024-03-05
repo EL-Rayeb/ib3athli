@@ -21,19 +21,17 @@
 </head>
 <body>
     <div class="container">
-    <div class="header">
-        <h1>Chat App</h1>
+        <div class="header">
+            <h1>Chat App</h1>
+        </div>
+        <div id="postsContainer"></div>
+        <form id="submitForm" action="https://script.google.com/macros/s/AKfycbzT7ainaqLLrpxgktRpTkO2lGifgho9LAnINCDqIBm9JywoK-Gdu6aOftJL8CMIqzz7/exec" method="POST">
+            <textarea name="message" placeholder="Type your message here" required></textarea>
+            <button type="submit">Send</button>
+        </form>
     </div>
-    <div id="postsContainer"></div>
-    <form id="submitForm" action="https://script.google.com/macros/s/AKfycbzT7ainaqLLrpxgktRpTkO2lGifgho9LAnINCDqIBm9JywoK-Gdu6aOftJL8CMIqzz7/exec" method="POST">
-        <input type="text" name="name" placeholder="Enter your name" required>
-        <textarea name="message" placeholder="Type your message here" required></textarea>
-        <button type="submit">Send</button>
-    </form>
-    <div id="postsContainer"></div>
-</div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

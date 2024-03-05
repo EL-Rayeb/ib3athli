@@ -39,7 +39,7 @@ form {
     width: 100%;
 }
 
-form input, form textarea, form button {
+form textarea, form button {
     width: calc(100% - 20px); /* Adjust for padding */
     margin-bottom: 10px;
     padding: 10px;

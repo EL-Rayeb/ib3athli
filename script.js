@@ -1,9 +1,28 @@
 // script.js
 
 $(document).ready(function() {
+    // Prompt user to input their name on page load
+    Swal.fire({
+        title: 'Enter your name',
+        input: 'text',
+        inputAttributes: {
+            required: 'required'
+        },
+        showCancelButton: false,
+        confirmButtonText: 'Submit',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        allowEnterKey: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Continue to fetch data and handle form submission
+            fetchData();
+        }
+    });
+
     // Function to fetch data from Google Sheets
     function fetchData() {
-        fetch('https://script.google.com/macros/s/AKfycbzT7ainaqLLrpxgktRpTkO2lGifgho9LAnINCDqIBm9JywoK-Gdu6aOftJL8CMIqzz7/exec')
+        fetch('https://script.google.com/macros/s/AKfycbw0n75DvLHhucb6PUzAqeCVFVWjk2HtD72W58MpkY0EstKv9Ror80YruyceZWdJbo-J/exec')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -14,16 +33,12 @@ $(document).ready(function() {
                 const postsContainer = $('#postsContainer');
                 postsContainer.empty();
 
-                // Reverse the array of data
-                // data.reverse();  // disabled for now
-
-                // Iterate through the reversed data array to create HTML elements
+                // Iterate through the data array to create HTML elements
                 data.forEach(post => {
                     const postElement = $('<div>').addClass('message');
                     postElement.html(`
                         <h2>${post.name}</h2>
                         <strong><h3>${post.message}</h3></strong>
-                        <p class="timestamp">${post.timestamp}</p>
                     `);
                     postsContainer.append(postElement);
                 });
@@ -43,21 +58,9 @@ $(document).ready(function() {
             });
     }
 
-    // Call fetchData function initially
-    fetchData();
-
     // Handle form submission
     $('#submitForm').submit(function(event) {
         event.preventDefault(); // Prevent default form submission behavior
-
-        // Display a wait alert using SweetAlert2
-        Swal.fire({
-            title: 'Sending message...',
-            allowOutsideClick: false,
-            onBeforeOpen: () => {
-                Swal.showLoading();
-            }
-        });
 
         // Fetch data from the form
         const formData = new FormData(this);
