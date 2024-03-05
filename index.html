@@ -20,14 +20,16 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-<div class="container">
-    <h1>Chat App</h1>
+    <div class="container">
+    <div class="header">
+        <h1>Chat App</h1>
+    </div>
+    <div id="postsContainer"></div>
     <form id="submitForm" action="https://script.google.com/your-google-sheets-url" method="POST">
         <input type="text" name="name" placeholder="Enter your name" required>
         <textarea name="message" placeholder="Type your message here" required></textarea>
         <button type="submit">Send</button>
     </form>
-    <div id="postsContainer"></div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
