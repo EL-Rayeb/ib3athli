@@ -15,7 +15,7 @@ $(document).ready(function() {
                 postsContainer.empty();
 
                 // Reverse the array of data
-                data.reverse();
+                // data.reverse();  // disabled for now
 
                 // Iterate through the reversed data array to create HTML elements
                 data.forEach(post => {

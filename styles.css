@@ -1,68 +1,59 @@
-/* styles.css */
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa;
 }
 
 .container {
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative; /* Position relative to use absolute positioning inside */
+    min-height: 100vh; /* Ensure the container takes up at least the full viewport height */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
-h1 {
+.header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
     text-align: center;
-    color: #007bff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1; /* Ensure the header stays on top of other elements */
+}
+
+#postsContainer {
+    margin-top: 50px; /* Adjust margin to account for fixed header */
+    padding-bottom: 100px; /* Ensure space for the inputs at the bottom */
 }
 
 form {
-    margin-bottom: 20px;
+    background-color: #0099ffbb;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
 
-input[type="text"],
-textarea {
-    width: 100%;
-    padding: 10px;
+form input, form textarea, form button {
+    width: calc(100% - 20px); /* Adjust for padding */
     margin-bottom: 10px;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     resize: vertical;
 }
 
-button {
-    padding: 10px 20px;
+/* Adjust styling for button */
+form button {
+    display: block;
     background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-#postsContainer {
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 5px;
-}
-
-.message {
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.timestamp {
-    font-size: 12px;
-    color: #777;
 }
