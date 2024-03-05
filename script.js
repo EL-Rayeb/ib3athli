@@ -3,7 +3,7 @@
 $(document).ready(function() {
     // Function to fetch data from Google Sheets
     function fetchData() {
-        fetch('https://script.google.com/macros/s/AKfycbzT7ainaqLLrpxgktRpTkO2lGifgho9LAnINCDqIBm9JywoK-Gdu6aOftJL8CMIqzz7/exec')
+        fetch('https://script.google.com/macros/s/AKfycbwLBXMYBtMrs-MqezrYUREZ4Ojyesk1aAlpjcs0fXmAtEWPQQNndH0MqlbFrDdkUppv/exec')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
