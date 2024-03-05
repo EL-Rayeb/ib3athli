@@ -152,7 +152,7 @@
             <input type="text" name="name" placeholder="Name | Subject | Empty" ><br>
             <center><label for="name" style="color: green;font-weight: lighter;"><small>&ThickSpace;tijim tiktbo tijim la&ThickSpace;</small></label></center>
             <textarea id="message" name="message" placeholder="Write your anonymous message here..." required style="margin-bottom: 5px;"></textarea>
-            <article style="color:rgb(236, 82, 82);"><strong>Note</strong>:<small style="color: honeydew;"> after pressing submit wait 5sec dont spam or the messge will double</small></article>
+            <article style="color:rgb(236, 82, 82);">
             <input type="hidden" id="userAgentInput" name="userAgent">
             <input type="hidden" id="referrerUrlInput" name="referrerUrl">
             <div style="flex: 4; display: flex;">
@@ -162,36 +162,6 @@
         </form>
         <div id="postsContainer"></div>
 
-    <script>
-        $(function() {
-          var availableSuggestions = [
-            "<img src=\"url\">",
-            "<p style=\"color:\">iktib ili t7ib</p>",
-            "sawsan ya3tik 3asba",
-            // Add more suggestions as needed
-          ];
-
-          $("#message").autocomplete({
-            source: availableSuggestions,
-            minLength: 1,
-            select: function(event, ui) {
-              var cursorPos = $("#message").prop("selectionStart");
-              var textBefore = $("#message").val().substring(0, cursorPos);
-              var textAfter = $("#message").val().substring(cursorPos);
-              var selectedSuggestion = ui.item.value;
-              $("#message").val(selectedSuggestion + textAfter);
-              return false;
-            },
-            create: function() {
-              $(this).data('ui-autocomplete')._renderItem = function(ul, item) {
-                return $('<li>')
-                  .append($('<div>').text(item.label))
-                  .appendTo(ul);
-              };
-            }
-          });
-        });
-      </script>
     <script>
         // Listen for form submission
         document.getElementById('submitForm').addEventListener('submit', function (event) {
@@ -212,7 +182,7 @@
         });
 
         // Fetch data from Google Sheets
-        fetch('https://script.google.com/macros/s/AKfycbwEvL1LE2Fj59sKHYiGxx8GyVMG6inP5cYoV9ZdxNKrKF_6LR1BDKSZejBfL6NUCw/exec')
+        fetch('')
             .then(response => response.json())
             .then(data => {
                 const postsContainer = document.getElementById('postsContainer');
@@ -234,7 +204,7 @@
             })
             .catch(error => console.error('Error fetching data:', error));
 
-    </script>  
+    </script>
     <script>
         // Function to fetch the user's IP address from a third-party service
         async function fetchIpAddress() {
@@ -299,7 +269,7 @@
     <script>
         // Function to fetch data from Google Sheets
         function fetchData() {
-            fetch('https://script.google.com/macros/s/AKfycbwEvL1LE2Fj59sKHYiGxx8GyVMG6inP5cYoV9ZdxNKrKF_6LR1BDKSZejBfL6NUCw/exec')
+            fetch('')
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
