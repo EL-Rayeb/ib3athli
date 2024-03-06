@@ -18,9 +18,11 @@ $(document).ready(function() {
                 // Iterate through the data array to create HTML elements
                 data.forEach(post => {
                     const postElement = $('<div>').addClass('message');
+                    const randomColor = getRandomColor(); // Generate random color
+                    postElement.css('background-color', randomColor); // Apply random color to message container
                     postElement.html(`
-                        <h2>${post.name}</h2>
-                        <strong><h3>${post.message}</h3></strong>
+                        <h2 style="color: white;">${post.name}</h2>
+                        <strong><h3 style="color: white;">${post.message}</h3></strong>
                     `);
                     postsContainer.append(postElement);
                 });
@@ -39,6 +41,26 @@ $(document).ready(function() {
                     text: 'An error occurred while fetching data. Please try again later.'
                 });
             });
+    }
+
+    // Function to generate a random color
+    function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    // Check if username is already stored in local storage
+    const storedUsername = localStorage.getItem('username');
+    if (!storedUsername) {
+        // If username is not stored, prompt user to input their name
+        promptForUsername();
+    } else {
+        // If username is stored, use it to send messages
+        sendMessage(storedUsername);
     }
 
     // Function to prompt user for username
@@ -77,11 +99,13 @@ $(document).ready(function() {
             // Get message from form data
             const message = formData.get('message');
 
-            // Append the message to the chat window
+            // Append the message to the chat window with the user's random color
             const postElement = $('<div>').addClass('message');
+            const randomColor = getRandomColor(); // Generate random color
+            postElement.css('background-color', randomColor); // Apply random color to message container
             postElement.html(`
-                <h2>${username}</h2>
-                <strong><h3>${message}</h3></strong>
+                <h2 style="color: white;">${username}</h2>
+                <strong><h3 style="color: white;">${message}</h3></strong>
             `);
             $('#postsContainer').append(postElement);
 
@@ -113,9 +137,6 @@ $(document).ready(function() {
             });
         });
     }
-
-    // Prompt user for username when the page loads
-    promptForUsername();
 
     // Fetch data initially and every 5 seconds
     fetchData();
