@@ -52,24 +52,20 @@ body {
     resize: vertical;
 }
 
-.submit-button {
+.submit-button  {
     background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
+    padding: 10px 15px;
+    text-align: center
 }
 
 .desktop-text {
     display: block;
 }
 
-.mobile-icon {
-    display: none;
-}
 .message{
     width: 100%;
     height: auto;
@@ -92,6 +88,7 @@ body {
 
     .mobile-icon {
         display: flex;
+        align-items: center;
     }
 }
 
@@ -99,11 +96,6 @@ body {
 @media only screen and (min-width: 601px) {
     .mobile-icon {
         display: none;
-    }
-
-    /* Add this style to align icon and text vertically */
-    #sendButton i {
-        margin-right: 5px;
     }
 }
 
@@ -119,26 +111,4 @@ body {
     cursor: pointer;
     padding: 10px;
     display: none; /* Initially hidden */
-}
-
-.scroll-button i {
-    font-size: 24px;
-}
-
-/* Style for user's message */
-.user-message {
-    background-color: #007bff;
-    color: #fff;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-/* Style for other people's messages */
-.other-message {
-    background-color: #f0f0f0;
-    color: #333;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 10px;
 }
