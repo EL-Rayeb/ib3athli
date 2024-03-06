@@ -69,6 +69,9 @@ body {
 .mobile-icon {
     display: none;
 }
+.message{
+    border-radius: 5%;
+}
 
 /* For phones */
 @media only screen and (max-width: 600px) {
