@@ -59,6 +59,8 @@ body {
     border-radius: 5px;
     cursor: pointer;
     padding: 10px 15px;
+    display: flex;
+    align-items: center;
     text-align: center
 }
 
