@@ -3,7 +3,7 @@
 $(document).ready(function() {
     // Function to fetch data from Google Sheets
     function fetchData() {
-        fetch('https://script.google.com/macros/s/AKfycbzvCa4dchc9vHcAvJgQWeFKcdUS9JW3lHpQDY5dFD_5N3Dw9JceroZmZuxnsPfKqJI0/exec')
+        fetch('https://script.google.com/macros/s/AKfycbzkUPuvLYnGs46DCLLoRZ4Ao0-i95nVP3_fuDA6mBxLPc2o0DjtkCvHwADLmsknNi_3/exec')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -32,10 +32,6 @@ $(document).ready(function() {
                     title: 'Oops...',
                     text: 'An error occurred while fetching data. Please try again later.'
                 });
-            })
-            .finally(() => {
-                // Schedule the next data fetch in 4 seconds
-                setTimeout(fetchData, 4000);
             });
     }
 
@@ -102,10 +98,6 @@ $(document).ready(function() {
                         timer: 3000,
                         timerProgressBar: true
                     });
-                    // Reload the page after a successful submission
-                    setTimeout(() => {
-                        location.reload();
-                    }, 3000);
                 } else {
                     throw new Error(`Form submission failed: ${response.statusText}`);
                 }
@@ -121,4 +113,7 @@ $(document).ready(function() {
             });
         });
     }
+
+    // Prompt user for username on page load
+    promptForUsername();
 });
