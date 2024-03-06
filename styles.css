@@ -11,6 +11,7 @@ body {
     position: relative;
     min-height: 100vh;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .header {
@@ -70,7 +71,8 @@ body {
     display: none;
 }
 .message{
-    border-radius: 5%;
+    width: 100%;
+    height: auto;
 }
 
 /* For phones */
