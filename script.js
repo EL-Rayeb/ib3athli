@@ -1,5 +1,3 @@
-// script.js
-
 $(document).ready(function() {
     // Function to fetch data from Google Sheets
     function fetchData() {
@@ -12,6 +10,9 @@ $(document).ready(function() {
             })
             .then(data => {
                 const postsContainer = $('#postsContainer');
+                const isScrolledToBottom = postsContainer[0].scrollHeight - postsContainer.scrollTop() === postsContainer.outerHeight();
+
+                // Clear previous messages
                 postsContainer.empty();
 
                 // Iterate through the data array to create HTML elements
@@ -23,6 +24,11 @@ $(document).ready(function() {
                     `);
                     postsContainer.append(postElement);
                 });
+
+                // Scroll to the bottom if previously scrolled to the bottom
+                if (isScrolledToBottom) {
+                    postsContainer.scrollTop(postsContainer[0].scrollHeight);
+                }
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
@@ -33,16 +39,6 @@ $(document).ready(function() {
                     text: 'An error occurred while fetching data. Please try again later.'
                 });
             });
-    }
-
-    // Check if username is already stored in local storage
-    const storedUsername = localStorage.getItem('username');
-    if (storedUsername) {
-        // If username is stored, use it
-        sendMessage(storedUsername);
-    } else {
-        // Prompt user to input their name
-        promptForUsername();
     }
 
     // Function to prompt user for username
@@ -70,9 +66,6 @@ $(document).ready(function() {
 
     // Function to send message with username
     function sendMessage(username) {
-        // Continue to fetch data and handle form submission
-        fetchData();
-
         // Handle form submission
         $('#submitForm').submit(function(event) {
             event.preventDefault(); // Prevent default form submission behavior
@@ -81,26 +74,33 @@ $(document).ready(function() {
             const formData = new FormData(this);
             formData.append('name', username); // Append username to form data
 
+            // Get message from form data
+            const message = formData.get('message');
+
+            // Append the message to the chat window
+            const postElement = $('<div>').addClass('message');
+            postElement.html(`
+                <h2>${username}</h2>
+                <strong><h3>${message}</h3></strong>
+            `);
+            $('#postsContainer').append(postElement);
+
+            // Scroll to the bottom of the messages
+            $('#postsContainer').scrollTop($('#postsContainer')[0].scrollHeight);
+
+            // Clear the message input
+            $('#messageInput').val('');
+
             // Submit form data to the server
             fetch(this.action, {
                 method: 'POST',
                 body: formData
             })
             .then(response => {
-                if (response.ok) {
-                    // Clear the form input after successful submission
-                    this.reset();
-                    // Show success message using SweetAlert2
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Success!',
-                        text: 'Your message has been sent successfully.',
-                        timer: 3000,
-                        timerProgressBar: true
-                    });
-                } else {
-                    throw new Error(`Form submission failed: ${response.statusText}`);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
                 }
+                // Optionally, you can handle successful submission here
             })
             .catch(error => {
                 console.error('Error submitting form:', error);
@@ -114,6 +114,57 @@ $(document).ready(function() {
         });
     }
 
-    // Prompt user for username on page load
+    // Prompt user for username when the page loads
     promptForUsername();
+
+    // Fetch data initially and every 5 seconds
+    fetchData();
+    setInterval(fetchData, 5000);
+
+    // Scroll to bottom on page load
+    $(window).on('load', function() {
+        $('#postsContainer').scrollTop($('#postsContainer')[0].scrollHeight);
+    });
+
+    // Add scroll-to-bottom button functionality
+    $('#scrollButton').click(function() {
+        $('html, body').animate({ scrollTop: $('#postsContainer')[0].scrollHeight }, 'slow');
+        return false;
+    });
+
+    // Show/hide scroll button based on scroll position
+    $(window).scroll(function() {
+        const $scrollButton = $('#scrollButton');
+
+        if ($(this).scrollTop() > 100) {
+            $scrollButton.fadeIn();
+        } else {
+            $scrollButton.fadeOut();
+        }
+
+        // Show/hide scroll button based on scroll position relative to the bottom
+        if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+            $scrollButton.fadeOut();
+        } else {
+            $scrollButton.fadeIn();
+        }
+
+        // Show/hide scroll button based on scroll direction
+        if ($(this).scrollTop() > 100 && $(this).scrollTop() > previousScroll) {
+            $messageForm.fadeOut();
+        } else {
+            $messageForm.fadeIn();
+        }
+        previousScroll = $(this).scrollTop();
+    });
+
+    var previousScroll = 0;
+
+    // Listen for enter key press in message input
+    $('#messageInput').keypress(function(event) {
+        if (event.which === 13 && !event.shiftKey) { // Check if Enter key is pressed and Shift key is not pressed
+            event.preventDefault(); // Prevent form submission
+            $('#submitForm').submit(); // Trigger form submission
+        }
+    });
 });

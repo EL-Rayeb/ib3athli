@@ -20,17 +20,20 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+    
     <div class="container">
         <div class="header">
             <h1>Chat App</h1>
         </div>
-        <div id="postsContainer"></div>
-        <form class="flex-buttom" id="submitForm" action="https://script.google.com/macros/s/AKfycbzkUPuvLYnGs46DCLLoRZ4Ao0-i95nVP3_fuDA6mBxLPc2o0DjtkCvHwADLmsknNi_3/exec" method="POST">
-            <textarea name="message" placeholder="Type your message here" required></textarea>
-            <button type="submit">Send</button>
-        </form>
+        <div id="postsContainer" class=""></div>
     </div>
+    <form id="submitForm" class="message-form" action="https://script.google.com/macros/s/AKfycbzkUPuvLYnGs46DCLLoRZ4Ao0-i95nVP3_fuDA6mBxLPc2o0DjtkCvHwADLmsknNi_3/exec" method="POST">
+        <input name="message" id="messageInput" placeholder="Type your message here" required></input>
+        <button id="sendButton" type="submit" class="submit-button"><i class="bx bx-send"></i><span class="desktop-text"> Send</span></button>
+    </form>
+    <button id="scrollButton" class="scroll-button" title="Scroll to bottom"><i class="bx bx-chevron-down"></i></button>
 
+    <script src="https://unpkg.com/boxicons@2.1.0/boxicons.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
 </body>

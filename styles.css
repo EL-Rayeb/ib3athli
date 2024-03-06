@@ -1,3 +1,4 @@
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -8,9 +9,9 @@ body {
     max-width: 700px;
     margin: 0 auto;
     padding: 20px;
-    position: relative; /* Position relative to use absolute positioning inside */
-    min-height: 100vh; /* Ensure the container takes up at least the full viewport height */
-    box-sizing: border-box; /* Include padding in width calculation */
+    position: relative;
+    min-height: 100vh;
+    box-sizing: border-box;
 }
 
 .header {
@@ -22,38 +23,100 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1; /* Ensure the header stays on top of other elements */
+    z-index: 1;
 }
 
 #postsContainer {
-    margin-top: 50px; /* Adjust margin to account for fixed header */
-    padding-bottom: 100px; /* Ensure space for the inputs at the bottom */
+    margin-top: 50px;
+    padding-bottom: 40px;
 }
 
-form {
-    background-color: #0099ffbb;
-    padding: 20px;
-    position: absolute;
+.message-form {
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
+    background-color: #f9f9f9;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
 }
 
-form textarea, form button {
-    width: calc(100% - 20px); /* Adjust for padding */
-    margin-bottom: 10px;
+.message-form input {
+    flex: 1;
+    margin-right: 10px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     resize: vertical;
 }
 
-/* Adjust styling for button */
-form button {
-    display: block;
+.submit-button {
     background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.desktop-text {
+    display: block;
+}
+
+.mobile-icon {
+    display: none;
+}
+
+/* For phones */
+@media only screen and (max-width: 600px) {
+    .message-form input {
+        width: calc(100% - 200px);
+        margin-right: 10px;
+    }
+
+    .message-form button {
+        width: 10px;
+    }
+
+    .desktop-text {
+        display: none;
+    }
+
+    .mobile-icon {
+        display: flex;
+    }
+}
+
+/* For desktops */
+@media only screen and (min-width: 601px) {
+    .mobile-icon {
+        display: none;
+    }
+
+    /* Add this style to align icon and text vertically */
+    #sendButton i {
+        margin-right: 5px;
+    }
+}
+
+/* Scroll button styles */
+.scroll-button {
+    position: fixed;
+    bottom: 50%;
+    right: 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 10px;
+    display: none; /* Initially hidden */
+}
+
+.scroll-button i {
+    font-size: 24px;
 }
