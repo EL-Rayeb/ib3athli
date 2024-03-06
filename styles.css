@@ -69,8 +69,8 @@ body {
 .message{
     width: 100%;
     height: auto;
+    margin-top: 10px;
 }
-
 /* For phones */
 @media only screen and (max-width: 600px) {
     .message-form input {

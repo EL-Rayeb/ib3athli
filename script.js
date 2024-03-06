@@ -18,11 +18,10 @@ $(document).ready(function() {
                 // Iterate through the data array to create HTML elements
                 data.forEach(post => {
                     const postElement = $('<div>').addClass('message');
-                    let userColor = getUserColor(post.name); // Get user's color based on name
-                    postElement.css('background-color', userColor); // Apply user's color to message container
+                    let userColor = getUserColor(post.name); // Get user's color based on name 
                     postElement.html(`
-                        <h2 style="color: white;">${post.name}</h2>
-                        <strong><h3 style="color: white;">${post.message}</h3></strong>
+                        <div style=" background-color: ${userColor} ; border:1px solid ${userColor} ; border-top-right-radius: 10px; border-top-left-radius: 10px;padding:5px; "><h2 style="color:#fff;">${post.name}</h2></div>
+                        <div style="border:5px solid ${userColor}"><strong><h3 style="color: #000;padding:5px;">${post.message}</h3></strong></div>
                     `);
                     postsContainer.append(postElement);
                 });
