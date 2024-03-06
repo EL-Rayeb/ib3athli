@@ -90,6 +90,7 @@ $(document).ready(function() {
                 sendMessage(result.value);
             }
         });
+        console.log('Username prompt displayed.'); // Log when username prompt is displayed
     }
 
     // Function to send message with username
