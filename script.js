@@ -25,7 +25,7 @@ $(document).ready(function() {
                         </div>
                         <div style="border:5px solid ${userColor}">
                         <strong>
-                        <h3 style="color: #000;padding:5px;">${post.message}</h3>
+                        <h3 style="color: #000;padding:5px;">${post.message} </h3>
                         </strong>
                         </div>
                     `);
@@ -122,7 +122,7 @@ $(document).ready(function() {
             $('#postsContainer').append(postElement);
 
             // Scroll to the bottom of the messages
-            $('#postsContainer').scrollTop($('#postsContainer')[0].scrollHeight);
+            $('html, body').animate({ scrollTop: $('#postsContainer')[0].scrollHeight }, 'slow');
 
             // Clear the message input
             $('#messageInput').val('');
@@ -152,7 +152,7 @@ $(document).ready(function() {
 
     // Fetch data initially and every 5 seconds
     fetchData();
-    setInterval(fetchData, 5000);
+    setInterval(fetchData, 2000);
 
     // Scroll to bottom on page load
     $(window).on('load', function() {
@@ -164,9 +164,11 @@ $(document).ready(function() {
         $('html, body').animate({ scrollTop: $('#postsContainer')[0].scrollHeight }, 'slow');
         return false;
     });
+    // Scroll to bottom submit button 5dim!!!!!!!!
     $('#sendButton').click(function() {
         $('html, body').animate({ scrollTop: $('#postsContainer')[0].scrollHeight }, 'slow');
     });
+    
     // Show/hide scroll button based on scroll position
     $(window).scroll(function() {
         const $scrollButton = $('#scrollButton');
