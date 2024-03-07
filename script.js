@@ -20,8 +20,14 @@ $(document).ready(function() {
                     const postElement = $('<div>').addClass('message');
                     let userColor = getUserColor(post.name); // Get user's color based on name 
                     postElement.html(`
-                        <div style=" background-color: ${userColor} ; border:1px solid ${userColor} ; border-top-right-radius: 10px; border-top-left-radius: 10px;padding:5px; "><h2 style="color:#fff;">${post.name}</h2></div>
-                        <div style="border:5px solid ${userColor}"><strong><h3 style="color: #000;padding:5px;">${post.message}</h3></strong></div>
+                        <div style=" background-color: ${userColor} ; border: ${userColor} ; border-top-right-radius: 10px; border-top-left-radius: 10px;padding:5px;">
+                        <legend style="color:#fff; width:auto;position absolute">${post.name}</legend>
+                        </div>
+                        <div style="border:5px solid ${userColor}">
+                        <strong>
+                        <h3 style="color: #000;padding:5px;">${post.message}</h3>
+                        </strong>
+                        </div>
                     `);
                     postsContainer.append(postElement);
                 });
@@ -154,7 +160,7 @@ $(document).ready(function() {
     });
 
     // Add scroll-to-bottom button functionality
-    $('#scrollButton').click(function() {
+    $('#scrollButton','#sendButton').click(function() {
         $('html, body').animate({ scrollTop: $('#postsContainer')[0].scrollHeight }, 'slow');
         return false;
     });
