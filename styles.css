@@ -73,6 +73,7 @@ body {
     height: auto;
     margin-top: 10px;
 }
+
 /* For phones */
 @media only screen and (max-width: 600px) {
 /* hides the submit*/
