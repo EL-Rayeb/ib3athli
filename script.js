@@ -160,11 +160,13 @@ $(document).ready(function() {
     });
 
     // Add scroll-to-bottom button functionality
-    $('#scrollButton','#sendButton').click(function() {
+    $('#scrollButton').click(function() {
         $('html, body').animate({ scrollTop: $('#postsContainer')[0].scrollHeight }, 'slow');
         return false;
     });
-
+    $('#sendButton').click(function() {
+        $('html, body').animate({ scrollTop: $('#postsContainer')[0].scrollHeight }, 'slow');
+    });
     // Show/hide scroll button based on scroll position
     $(window).scroll(function() {
         const $scrollButton = $('#scrollButton');
@@ -191,7 +193,7 @@ $(document).ready(function() {
         previousScroll = $(this).scrollTop();
     });
 
-    var previousScroll = 0;
+    var previousScroll = 2;
 
     // Listen for enter key press in message input
     $('#messageInput').keypress(function(event) {
