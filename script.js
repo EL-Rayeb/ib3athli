@@ -20,14 +20,14 @@ $(document).ready(function() {
                     const postElement = $('<div>').addClass('message');
                     let userColor = getUserColor(post.name); // Get user's color based on name 
                     postElement.html(`
-                        <div style=" background-color: ${userColor} ; border: ${userColor} ; border-top-right-radius: 10px; border-top-left-radius: 10px;padding:5px;">
-                        <legend style="color:#fff; width:auto;position absolute">${post.name}</legend>
+                        <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-right-radius: 10px;padding:5px;">
+                        <legend style="color:#fff;background-color: ${userColor}; padding: 5px ; border-radius:10px">${post.name}</legend>
                         </div>
-                        <div style="border:5px solid ${userColor}">
+                        <div style="">
                         <strong>
                         <h3 style="color: #000;padding:5px;">${post.message} </h3>
                         </strong>
-                        </div>
+                        </fieldset>
                     `);
                     postsContainer.append(postElement);
                 });
@@ -114,10 +114,15 @@ $(document).ready(function() {
             // Append the message to the chat window with the user's color
             const postElement = $('<div>').addClass('message');
             const userColor = getUserColor(username); // Get user's color based on name
-            postElement.css('background-color', userColor); // Apply user's color to message container
             postElement.html(`
-                <h2 style="color: white;">${username}</h2>
-                <strong><h3 style="color: white;">${message}</h3></strong>
+                <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-right-radius: 10px;padding:5px;">
+                <legend style="color:#fff;background-color: ${userColor}; padding: 5px ; border-radius:10px">${username} <i class="fa fa-paper-plane"></i></legend>
+                </div>
+                <div style="">
+                <strong>
+                <h3 style="color: #000;padding:5px;">${message} </h3>
+                </strong>
+                </fieldset>
             `);
             $('#postsContainer').append(postElement);
 
