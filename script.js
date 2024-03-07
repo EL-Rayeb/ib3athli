@@ -196,12 +196,4 @@ $(document).ready(function() {
     });
 
     var previousScroll = 2;
-
-    // Listen for enter key press in message input
-    $('#messageInput').keypress(function(event) {
-        if (event.which === 13 && !event.shiftKey) { // Check if Enter key is pressed and Shift key is not pressed
-            event.preventDefault(); // Prevent form submission
-            $('#submitForm').submit(); // Trigger form submission
-        }
-    });
 });
