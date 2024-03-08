@@ -201,5 +201,5 @@ $(document).ready(function() {
         previousScroll = ($(this).scrollTop());
     });
 
-    var previousScroll = 5;
+    var previousScroll = 1;
 });
