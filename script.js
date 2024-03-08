@@ -19,32 +19,16 @@ $(document).ready(function() {
                 data.forEach(post => {
                     const postElement = $('<div>').addClass('message');
                     let userColor = getUserColor(post.name); // Get user's color based on name
-                    const storedUsername = localStorage.getItem('username');
-                    if (storedUsername===post.name) {
-                        // If username is not stored, prompt user to input their name
-                        postElement.html(`
-                        <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;padding:5px;">
-                        <legend style="color:#fff;background-color: ${userColor}; padding: 5px ; border-top-left-radius: 10px; border-bottom-right-radius: 10px;">${post.name} <i class="fa fa-check-double"></i></legend>
-                        </div>
-                        <div style="">
-                        <strong>
-                        <h3 style="color: #000;padding:5px;">${post.message} </h3>
-                        </strong></div>
-                        </fieldset>
-                    `);
-                    } else {
-                        // If username is stored, use it to send messages
-                        postElement.html(`
+                    postElement.html(`
                         <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-right-radius: 10px;padding:5px;">
-                        <legend style="color:#fff;background-color: ${userColor}; padding: 5px ; border-top-left-radius: 10px; border-bottom-right-radius: 10px;">${post.name} <i class="fa fa-check-double"></i></legend>
+                        <legend style="color:#fff;background-color: ${userColor}; padding: 5px ; border-top-left-radius: 10px; border-bottom-right-radius: 10px;border-radius-left:0px">${post.name} <i class="fa fa-check-double"></i></legend>
                         </div>
                         <div style="">
                         <strong>
                         <h3 style="color: #000;padding:5px;">${post.message} </h3>
-                        </strong></div>
+                        </strong>
                         </fieldset>
                     `);
-                    }
                     postsContainer.append(postElement);
                 });
 
@@ -130,31 +114,16 @@ $(document).ready(function() {
             // Append the message to the chat window with the user's color
             const postElement = $('<div>').addClass('message');
             const userColor = getUserColor(username); // Get user's color based on name
-            if (storedUsername===post.name) {
-                // If username is not stored, prompt user to input their name
-                postElement.html(`
-                <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;padding:5px;">
-                <legend style="color:#fff;background-color: ${userColor}; padding: 5px ;  border-top-left-radius: 10px; border-bottom-right-radius: 10px;">${username} <i class="fa fa-paper-plane"></i></legend>
-                
-                <div style="">
-                <strong>
-                <h3 style="color: #000;padding:5px;">${message} </h3>
-                </strong></div>
-                </fieldset>
-            `);
-            } else {
-                // If username is stored, use it to send messages
-                postElement.html(`
+            postElement.html(`
                 <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-right-radius: 10px;padding:5px;">
-                <legend style="color:#fff;background-color: ${userColor}; padding: 5px ;  border-top-left-radius: 10px; border-bottom-right-radius: 10px;">${username} <i class="fa fa-paper-plane"></i></legend>
-                
+                <legend style="color:#fff;background-color: ${userColor}; padding: 5px ; border-radius:10px">${username} <i class="fa fa-paper-plane"></i></legend>
+                </div>
                 <div style="">
                 <strong>
                 <h3 style="color: #000;padding:5px;">${message} </h3>
-                </strong></div>
+                </strong>
                 </fieldset>
             `);
-            }
             $('#postsContainer').append(postElement);
 
             // Scroll to the bottom of the messages
@@ -232,5 +201,5 @@ $(document).ready(function() {
         previousScroll = ($(this).scrollTop());
     });
 
-    var previousScroll = 0;
+    var previousScroll = 1;
 });
