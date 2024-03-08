@@ -131,7 +131,6 @@ $(document).ready(function() {
             // Append the message to the chat window with the user's color
             const postElement = $('<div>').addClass('message');
             const userColor = getUserColor(username); // Get user's color based on name
-            if (storedUsername===username) {
                 // If username is not stored, prompt user to input their name
                 postElement.html(`
                 <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;padding:5px;display:block">
@@ -143,7 +142,7 @@ $(document).ready(function() {
                 </strong></div>
                 </fieldset>
             `);
-            }
+            
             $('#postsContainer').append(postElement);
 
             // Scroll to the bottom of the messages
