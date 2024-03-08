@@ -24,24 +24,24 @@ $(document).ready(function() {
                         // If username is not stored, prompt user to input their name
                         postElement.html(`
                         <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;padding:5px;">
-                            <legend style="color:#fff;background-color: ${userColor}; padding: 5px ; border-top-left-radius: 10px; border-bottom-right-radius: 10px;">
-                                ${post.name} <i class="fa fa-check-double"></i>
-                            </legend>
-                            <strong>
-                                <h3 style="color: #000;padding:5px;">${post.message} </h3>
-                            </strong>
+                        <legend style="color:#fff;background-color: ${userColor}; padding: 5px ; border-top-left-radius: 10px; border-bottom-right-radius: 10px;">${post.name} <i class="fa fa-check-double"></i></legend>
+                        </div>
+                        <div style="">
+                        <strong>
+                        <h3 style="color: #000;padding:5px;">${post.message} </h3>
+                        </strong>
                         </fieldset>
                     `);
                     } else {
                         // If username is stored, use it to send messages
                         postElement.html(`
                         <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-right-radius: 10px;padding:5px;">
-                            <legend style="color:#fff;background-color: ${userColor}; padding: 5px ; border-top-left-radius: 10px; border-bottom-right-radius: 10px;">
-                                ${post.name} <i class="fa fa-check-double"></i>
-                            </legend>
-                            <strong>
-                                <h3 style="color: #000;padding:5px;">${post.message} </h3>
-                            </strong>
+                        <legend style="color:#fff;background-color: ${userColor}; padding: 5px ; border-top-left-radius: 10px; border-bottom-right-radius: 10px;">${post.name} <i class="fa fa-check-double"></i></legend>
+                        </div>
+                        <div style="">
+                        <strong>
+                        <h3 style="color: #000;padding:5px;">${post.message} </h3>
+                        </strong>
                         </fieldset>
                     `);
                     }
@@ -210,21 +210,21 @@ $(document).ready(function() {
     $(window).scroll(function() {
         const $scrollButton = $('#scrollButton');
 
-        if ($(this).scrollTop() > 100) {
-            $scrollButton.fadeIn();
-        } else {
+        if ($(this).scrollTop() < 1000) {
             $scrollButton.fadeOut();
+        } else {
+            $scrollButton.fadeIn();
         }
 
         // Show/hide scroll button based on scroll position relative to the bottom
         if ($(window).scrollTop() + $(window).height() == $(document).height()) {
-            $scrollButton.fadeOut();
-        } else {
             $scrollButton.fadeIn();
+        } else {
+            $scrollButton.fadeOut();
         }
 
         // Show/hide scroll button based on scroll direction
-        if ($(this).scrollTop() > 100 && $(this).scrollTop() > previousScroll) {
+        if ($(this).scrollTop() < 1000 && $(this).scrollTop() > previousScroll) {
             $messageForm.fadeIn();
         } else {
             $messageForm.fadeOut();
@@ -232,5 +232,5 @@ $(document).ready(function() {
         previousScroll = ($(this).scrollTop());
     });
 
-    var previousScroll = 0;
+    var previousScroll = 5;
 });
