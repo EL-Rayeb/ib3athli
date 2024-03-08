@@ -70,7 +70,8 @@ body {
 }
 
 .message{
-    width: 100%;
+    
+    width: 90%;
     height: auto;
     margin-top: 10px;
 }
