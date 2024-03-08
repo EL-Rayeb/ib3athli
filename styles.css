@@ -70,10 +70,10 @@ body {
 }
 
 .message{
-    
     width: 80%;
     height: auto;
     margin-top: 10px;
+    margin-bottom: 5px;
 }
 
 /* For phones */

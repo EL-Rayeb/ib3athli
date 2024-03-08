@@ -23,7 +23,7 @@ $(document).ready(function() {
                     if (storedUsername===post.name) {
                         // If username is not stored, prompt user to input their name
                         postElement.html(`
-                        <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;padding:5px; float: right; width:90%; margin-left:20px   ">
+                        <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;padding:5px; float: right; width:90%; margin-top:5px;margin-bottom:5px   ">
                         <legend style="color:#fff;background-color: ${userColor}; padding: 5px ; border-top-left-radius: 10px; border-bottom-right-radius: 10px; float:right;" >${post.name} <i class="fa fa-check-double"></i></legend>
                         
                         <div style="">
