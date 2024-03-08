@@ -45,6 +45,7 @@ body {
 
 .message-form input {
     flex: 1;
+    max-width: 700px;
     margin-right: 10px;
     padding: 10px;
     border: 1px solid #ccc;
@@ -101,7 +102,7 @@ body {
 /* Scroll button styles */
 .scroll-button {
     position: fixed;
-    bottom: 50px;
+    bottom: 60px;
     right: 50%;
     background-color: #007bff;
     color: #fff;

@@ -42,8 +42,8 @@ $(document).ready(function() {
                 // Display an error message using SweetAlert2
                 Swal.fire({
                     icon: 'error',
-                    title: 'Oops...',
-                    text: 'An error occurred while fetching data. Please try again later.'
+                    title: 'Connection Failure !',
+                    text: 'You are not online. Please try again later.'
                 });
             });
     }
@@ -148,14 +148,14 @@ $(document).ready(function() {
                 // Display an error message using SweetAlert2
                 Swal.fire({
                     icon: 'error',
-                    title: 'Oops...',
-                    text: 'An error occurred while submitting the form. Please try again later.'
+                    title: 'Message is not sent',
+                    text: 'Your internet connection is weak. Please try again later.'
                 });
             });
         });
     }
 
-    // Fetch data initially and every 5 seconds
+    // Fetch data initially and every 2 seconds
     fetchData();
     setInterval(fetchData, 2000);
 
@@ -169,16 +169,16 @@ $(document).ready(function() {
         $('html, body').animate({ scrollTop: $('#postsContainer')[0].scrollHeight }, 'slow');
         return false;
     });
-    // Scroll to bottom submit button 5dim!!!!!!!!
+    // Scroll to bottom submit button
     $('#sendButton').click(function() {
         $('html, body').animate({ scrollTop: $('#postsContainer')[0].scrollHeight }, 'slow');
     });
-    
+
     // Show/hide scroll button based on scroll position
     $(window).scroll(function() {
         const $scrollButton = $('#scrollButton');
 
-        if ($(this).scrollTop() > 100) {
+        if ($(this).scrollTop() > 1000) {
             $scrollButton.fadeIn();
         } else {
             $scrollButton.fadeOut();
@@ -200,5 +200,5 @@ $(document).ready(function() {
         previousScroll = $(this).scrollTop();
     });
 
-    var previousScroll = 2;
+    var previousScroll = 0;
 });
