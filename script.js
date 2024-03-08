@@ -23,7 +23,7 @@ $(document).ready(function() {
                     if (storedUsername===post.name) {
                         // If username is not stored, prompt user to input their name
                         postElement.html(`
-                        <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;padding:5px;">
+                        <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;padding:5px; float: right; width:90%; margin-left:20px   ">
                         <legend style="color:#fff;background-color: ${userColor}; padding: 5px ; border-top-left-radius: 10px; border-bottom-right-radius: 10px; float:right;" >${post.name} <i class="fa fa-check-double"></i></legend>
                         
                         <div style="">
@@ -35,7 +35,7 @@ $(document).ready(function() {
                     } else {
                         // If username is stored, use it to send messages
                         postElement.html(`
-                        <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-right-radius: 10px;padding:5px;">
+                        <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-right-radius: 10px;padding:5px;display:block">
                         <legend style="color:#fff;background-color: ${userColor}; padding: 5px ; border-bottom-left-radius: 10px; border-top-right-radius: 10px;position:absolute;">${post.name} <i class="fa fa-check-double"></i></legend>
                         
                         <div style="margin-top:30px">
@@ -134,7 +134,7 @@ $(document).ready(function() {
             if (storedUsername===username) {
                 // If username is not stored, prompt user to input their name
                 postElement.html(`
-                <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;padding:5px;">
+                <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;padding:5px;display:block">
                 <legend style="color:#fff;background-color: ${userColor}; padding: 5px ;  border-top-left-radius: 10px; border-bottom-right-radius: 10px;float:right;">${username} <i class="fa fa-paper-plane"></i></legend>
                 
                 <div style="">
