@@ -45,7 +45,6 @@ $(document).ready(function() {
                         </fieldset>
                     `);
                     }
-                    
                     postsContainer.append(postElement);
                 });
 
