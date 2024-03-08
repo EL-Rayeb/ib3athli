@@ -19,16 +19,33 @@ $(document).ready(function() {
                 data.forEach(post => {
                     const postElement = $('<div>').addClass('message');
                     let userColor = getUserColor(post.name); // Get user's color based on name
-                    postElement.html(`
-                        <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-right-radius: 10px;padding:5px;">
-                        <legend style="color:#fff;background-color: ${userColor}; padding: 5px ; border-top-left-radius: 10px; border-bottom-right-radius: 10px;border-radius-left:0px">${post.name} <i class="fa fa-check-double"></i></legend>
-                        </div>
+                    const storedUsername = localStorage.getItem('username');
+                    if (storedUsername===post.name) {
+                        // If username is not stored, prompt user to input their name
+                        postElement.html(`
+                        <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;padding:5px;">
+                        <legend style="color:#fff;background-color: ${userColor}; padding: 5px ; border-top-left-radius: 10px; border-bottom-right-radius: 10px; float:right;" >${post.name} <i class="fa fa-check-double"></i></legend>
+                        
                         <div style="">
                         <strong>
                         <h3 style="color: #000;padding:5px;">${post.message} </h3>
-                        </strong>
+                        </strong></div>
                         </fieldset>
                     `);
+                    } else {
+                        // If username is stored, use it to send messages
+                        postElement.html(`
+                        <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-right-radius: 10px;padding:5px;">
+                        <legend style="color:#fff;background-color: ${userColor}; padding: 5px ; border-bottom-left-radius: 10px; border-top-right-radius: 10px;position:absolute;">${post.name} <i class="fa fa-check-double"></i></legend>
+                        
+                        <div style="margin-top:30px">
+                        <strong>
+                        <h3 style="color: #000;padding:5px;">${post.message} </h3>
+                        </strong></div>
+                        </fieldset>
+                    `);
+                    }
+                    
                     postsContainer.append(postElement);
                 });
 
@@ -114,16 +131,19 @@ $(document).ready(function() {
             // Append the message to the chat window with the user's color
             const postElement = $('<div>').addClass('message');
             const userColor = getUserColor(username); // Get user's color based on name
-            postElement.html(`
-                <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-right-radius: 10px;padding:5px;">
-                <legend style="color:#fff;background-color: ${userColor}; padding: 5px ; border-radius:10px">${username} <i class="fa fa-paper-plane"></i></legend>
-                </div>
+            if (storedUsername===username) {
+                // If username is not stored, prompt user to input their name
+                postElement.html(`
+                <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;padding:5px;">
+                <legend style="color:#fff;background-color: ${userColor}; padding: 5px ;  border-top-left-radius: 10px; border-bottom-right-radius: 10px;float:right;">${username} <i class="fa fa-paper-plane"></i></legend>
+                
                 <div style="">
                 <strong>
                 <h3 style="color: #000;padding:5px;">${message} </h3>
-                </strong>
+                </strong></div>
                 </fieldset>
             `);
+            }
             $('#postsContainer').append(postElement);
 
             // Scroll to the bottom of the messages
@@ -179,21 +199,21 @@ $(document).ready(function() {
     $(window).scroll(function() {
         const $scrollButton = $('#scrollButton');
 
-        if ($(this).scrollTop() < 1000) {
-            $scrollButton.fadeOut();
-        } else {
+        if ($(this).scrollTop() > 100) {
             $scrollButton.fadeIn();
+        } else {
+            $scrollButton.fadeOut();
         }
 
         // Show/hide scroll button based on scroll position relative to the bottom
         if ($(window).scrollTop() + $(window).height() == $(document).height()) {
-            $scrollButton.fadeIn();
-        } else {
             $scrollButton.fadeOut();
+        } else {
+            $scrollButton.fadeIn();
         }
 
         // Show/hide scroll button based on scroll direction
-        if ($(this).scrollTop() < 1000 && $(this).scrollTop() > previousScroll) {
+        if ($(this).scrollTop() > 100 && $(this).scrollTop() > previousScroll) {
             $messageForm.fadeIn();
         } else {
             $messageForm.fadeOut();
@@ -201,5 +221,5 @@ $(document).ready(function() {
         previousScroll = ($(this).scrollTop());
     });
 
-    var previousScroll = 1;
+    var previousScroll = 0;
 });
