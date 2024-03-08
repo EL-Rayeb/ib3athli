@@ -21,7 +21,7 @@ $(document).ready(function() {
                     let userColor = getUserColor(post.name); // Get user's color based on name
                     postElement.html(`
                         <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-right-radius: 10px;padding:5px;">
-                        <legend style="color:#fff;background-color: ${userColor}; padding: 5px ; border-top-right-radius: 10px; border-bottom-right-radius: 10px;border-radius-left:0px">${post.name} <i class="fa fa-check-double"></i></legend>
+                        <legend style="color:#fff;background-color: ${userColor}; padding: 5px ; border-top-left-radius: 10px; border-bottom-right-radius: 10px;border-radius-left:0px">${post.name} <i class="fa fa-check-double"></i></legend>
                         </div>
                         <div style="">
                         <strong>
