@@ -136,7 +136,6 @@ $(document).ready(function() {
                 postElement.html(`
                 <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;padding:5px;">
                 <legend style="color:#fff;background-color: ${userColor}; padding: 5px ;  border-top-left-radius: 10px; border-bottom-right-radius: 10px;float:right;">${username} <i class="fa fa-paper-plane"></i></legend>
-                
                 <div style="">
                 <strong>
                 <h3 style="color: #000;padding:5px;">${message} </h3>
