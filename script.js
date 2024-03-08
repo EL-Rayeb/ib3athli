@@ -159,6 +159,11 @@ $(document).ready(function() {
     fetchData();
     setInterval(fetchData, 2000);
 
+    // Scroll to bottom submit button
+    $('#sendButton').click(function() {
+        $('html, body').animate({ scrollTop: $('#postsContainer')[0].scrollHeight }, 'slow');
+    });
+
     // Scroll to bottom on page load
     $(window).on('load', function() {
         $('#postsContainer').scrollTop($('#postsContainer')[0].scrollHeight);
@@ -166,12 +171,8 @@ $(document).ready(function() {
 
     // Add scroll-to-bottom button functionality
     $('#scrollButton').click(function() {
-        $('html, body').animate({ scrollTop: $('#postsContainer')[0].scrollHeight }, 'slow');
+        $('html, body').animate({ scrollTop: $('#postsContainer')[0].scrollHeight }, 'slow',);
         return false;
-    });
-    // Scroll to bottom submit button
-    $('#sendButton').click(function() {
-        $('html, body').animate({ scrollTop: $('#postsContainer')[0].scrollHeight }, 'slow');
     });
 
     // Show/hide scroll button based on scroll position
@@ -192,7 +193,7 @@ $(document).ready(function() {
         }
 
         // Show/hide scroll button based on scroll direction
-        if ($(this).scrollTop() > 100 && $(this).scrollTop() > previousScroll) {
+        if ($(this).scrollTop() > 1000 && $(this).scrollTop() > previousScroll) {
             $messageForm.fadeOut();
         } else {
             $messageForm.fadeIn();
