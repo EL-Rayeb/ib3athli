@@ -23,9 +23,9 @@ $(document).ready(function() {
                     if (storedUsername===post.name) {
                         // If username is not stored, prompt user to input their name
                         postElement.html(`
-                        <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;padding:5px; float: right; width:90%; margin-left:20px   ">
-                        <legend style="color:#fff;background-color: ${userColor}; padding: 5px ; border-top-left-radius: 10px; border-bottom-right-radius: 10px; float:right;" >${post.name} <i class="fa fa-check-double"></i></legend>
-                        
+                        <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;padding:5px;">
+                        <legend style="color:#fff;background-color: ${userColor}; padding: 5px ; border-top-left-radius: 10px; border-bottom-right-radius: 10px;">${post.name} <i class="fa fa-check-double"></i></legend>
+                        </div>
                         <div style="">
                         <strong>
                         <h3 style="color: #000;padding:5px;">${post.message} </h3>
@@ -35,17 +35,16 @@ $(document).ready(function() {
                     } else {
                         // If username is stored, use it to send messages
                         postElement.html(`
-                        <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-right-radius: 10px;padding:5px;display:block">
-                        <legend style="color:#fff;background-color: ${userColor}; padding: 5px ; border-bottom-left-radius: 10px; border-top-right-radius: 10px;position:absolute;">${post.name} <i class="fa fa-check-double"></i></legend>
-                        
-                        <div style="margin-top:30px">
+                        <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-right-radius: 10px;padding:5px;">
+                        <legend style="color:#fff;background-color: ${userColor}; padding: 5px ; border-top-left-radius: 10px; border-bottom-right-radius: 10px;">${post.name} <i class="fa fa-check-double"></i></legend>
+                        </div>
+                        <div style="">
                         <strong>
                         <h3 style="color: #000;padding:5px;">${post.message} </h3>
-                        </strong></div>
+                        </strong>
                         </fieldset>
                     `);
                     }
-                    
                     postsContainer.append(postElement);
                 });
 
@@ -131,11 +130,11 @@ $(document).ready(function() {
             // Append the message to the chat window with the user's color
             const postElement = $('<div>').addClass('message');
             const userColor = getUserColor(username); // Get user's color based on name
-            if (storedUsername===username) {
+            if (storedUsername===post.name) {
                 // If username is not stored, prompt user to input their name
                 postElement.html(`
-                <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;padding:5px;display:block">
-                <legend style="color:#fff;background-color: ${userColor}; padding: 5px ;  border-top-left-radius: 10px; border-bottom-right-radius: 10px;float:right;">${username} <i class="fa fa-paper-plane"></i></legend>
+                <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;padding:5px;">
+                <legend style="color:#fff;background-color: ${userColor}; padding: 5px ;  border-top-left-radius: 10px; border-bottom-right-radius: 10px;">${username} <i class="fa fa-paper-plane"></i></legend>
                 
                 <div style="">
                 <strong>
@@ -143,7 +142,18 @@ $(document).ready(function() {
                 </strong></div>
                 </fieldset>
             `);
-            }
+            } else {
+                // If username is stored, use it to send messages
+                postElement.html(`
+                <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-right-radius: 10px;padding:5px;">
+                <legend style="color:#fff;background-color: ${userColor}; padding: 5px ;  border-top-left-radius: 10px; border-bottom-right-radius: 10px;">${username} <i class="fa fa-paper-plane"></i></legend>
+                
+                <div style="">
+                <strong>
+                <h3 style="color: #000;padding:5px;">${message} </h3>
+                </strong>
+                </fieldset>
+            `);
             $('#postsContainer').append(postElement);
 
             // Scroll to the bottom of the messages
@@ -221,5 +231,5 @@ $(document).ready(function() {
         previousScroll = ($(this).scrollTop());
     });
 
-    var previousScroll = 5;
+    var previousScroll = 0;
 });
