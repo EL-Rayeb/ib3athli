@@ -199,21 +199,21 @@ $(document).ready(function() {
     $(window).scroll(function() {
         const $scrollButton = $('#scrollButton');
 
-        if ($(this).scrollTop() > 100) {
-            $scrollButton.fadeIn();
-        } else {
+        if ($(this).scrollTop() < 1000) {
             $scrollButton.fadeOut();
+        } else {
+            $scrollButton.fadeIn();
         }
 
         // Show/hide scroll button based on scroll position relative to the bottom
         if ($(window).scrollTop() + $(window).height() == $(document).height()) {
-            $scrollButton.fadeOut();
-        } else {
             $scrollButton.fadeIn();
+        } else {
+            $scrollButton.fadeOut();
         }
 
         // Show/hide scroll button based on scroll direction
-        if ($(this).scrollTop() > 100 && $(this).scrollTop() > previousScroll) {
+        if ($(this).scrollTop() < 1000 && $(this).scrollTop() > previousScroll) {
             $messageForm.fadeIn();
         } else {
             $messageForm.fadeOut();
@@ -221,5 +221,5 @@ $(document).ready(function() {
         previousScroll = ($(this).scrollTop());
     });
 
-    var previousScroll = 0;
+    var previousScroll = 5;
 });
