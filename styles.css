@@ -101,8 +101,8 @@ body {
 /* Scroll button styles */
 .scroll-button {
     position: fixed;
-    bottom: 50%;
-    right: 20px;
+    bottom: 50px;
+    right: 50%;
     background-color: #007bff;
     color: #fff;
     border: none;
