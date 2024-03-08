@@ -24,28 +24,27 @@ $(document).ready(function() {
                         // If username is not stored, prompt user to input their name
                         postElement.html(`
                         <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;padding:5px;">
-                        <legend style="color:#fff;background-color: ${userColor}; padding: 5px ; border-top-left-radius: 10px; border-bottom-right-radius: 10px;">${post.name} <i class="fa fa-check-double"></i></legend>
-                        </div>
-                        <div style="">
-                        <strong>
-                        <h3 style="color: #000;padding:5px;">${post.message} </h3>
-                        </strong>
+                            <legend style="color:#fff;background-color: ${userColor}; padding: 5px ; border-top-left-radius: 10px; border-bottom-right-radius: 10px;">
+                                ${post.name} <i class="fa fa-check-double"></i>
+                            </legend>
+                            <strong>
+                                <h3 style="color: #000;padding:5px;">${post.message} </h3>
+                            </strong>
                         </fieldset>
                     `);
                     } else {
                         // If username is stored, use it to send messages
                         postElement.html(`
                         <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-right-radius: 10px;padding:5px;">
-                        <legend style="color:#fff;background-color: ${userColor}; padding: 5px ; border-top-left-radius: 10px; border-bottom-right-radius: 10px;">${post.name} <i class="fa fa-check-double"></i></legend>
-                        </div>
-                        <div style="">
-                        <strong>
-                        <h3 style="color: #000;padding:5px;">${post.message} </h3>
-                        </strong>
+                            <legend style="color:#fff;background-color: ${userColor}; padding: 5px ; border-top-left-radius: 10px; border-bottom-right-radius: 10px;">
+                                ${post.name} <i class="fa fa-check-double"></i>
+                            </legend>
+                            <strong>
+                                <h3 style="color: #000;padding:5px;">${post.message} </h3>
+                            </strong>
                         </fieldset>
                     `);
                     }
-                    
                     postsContainer.append(postElement);
                 });
 
