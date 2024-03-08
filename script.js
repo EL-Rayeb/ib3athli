@@ -131,7 +131,21 @@ $(document).ready(function() {
             // Append the message to the chat window with the user's color
             const postElement = $('<div>').addClass('message');
             const userColor = getUserColor(username); // Get user's color based on name
-            postElement.html(`
+            if (storedUsername===post.name) {
+                // If username is not stored, prompt user to input their name
+                postElement.html(`
+                <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-right-radius: 10px;padding:5px;">
+                <legend style="color:#fff;background-color: ${userColor}; padding: 5px ;  border-top-left-radius: 10px; border-bottom-left-radius: 10px;">${username} <i class="fa fa-paper-plane"></i></legend>
+                </div>
+                <div style="">
+                <strong>
+                <h3 style="color: #000;padding:5px;">${message} </h3>
+                </strong>
+                </fieldset>
+            `);
+            } else {
+                // If username is stored, use it to send messages
+                postElement.html(`
                 <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-right-radius: 10px;padding:5px;">
                 <legend style="color:#fff;background-color: ${userColor}; padding: 5px ;  border-top-left-radius: 10px; border-bottom-right-radius: 10px;">${username} <i class="fa fa-paper-plane"></i></legend>
                 </div>
@@ -141,6 +155,7 @@ $(document).ready(function() {
                 </strong>
                 </fieldset>
             `);
+            }
             $('#postsContainer').append(postElement);
 
             // Scroll to the bottom of the messages
