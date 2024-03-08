@@ -20,7 +20,7 @@ $(document).ready(function() {
                     const postElement = $('<div>').addClass('message');
                     let userColor = getUserColor(post.name); // Get user's color based on name
                     const storedUsername = localStorage.getItem('username');
-                    if (storedUsername===post.name) {
+                    if (storedUsername===post.username) {
                         // If username is not stored, prompt user to input their name
                         postElement.html(`
                         <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;padding:5px; float: right; width:90%; margin-top:5px;margin-bottom:5px   ">
