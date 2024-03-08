@@ -179,7 +179,7 @@ $(document).ready(function() {
     $(window).scroll(function() {
         const $scrollButton = $('#scrollButton');
 
-        if ($(this).scrollTop() > 1000) {
+        if ($(this).scrollTop() > 100) {
             $scrollButton.fadeIn();
         } else {
             $scrollButton.fadeOut();
@@ -193,12 +193,12 @@ $(document).ready(function() {
         }
 
         // Show/hide scroll button based on scroll direction
-        if ($(this).scrollTop() > 1000 && $(this).scrollTop() > previousScroll) {
-            $messageForm.fadeOut();
-        } else {
+        if ($(this).scrollTop() > 100 && $(this).scrollTop() > previousScroll) {
             $messageForm.fadeIn();
+        } else {
+            $messageForm.fadeOut();
         }
-        previousScroll = $(this).scrollTop();
+        previousScroll = ($(this).scrollTop());
     });
 
     var previousScroll = 0;

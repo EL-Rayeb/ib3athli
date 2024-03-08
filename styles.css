@@ -103,7 +103,7 @@ body {
 .scroll-button {
     position: fixed;
     bottom: 60px;
-    right: 50%;
+    right: 20px;
     background-color: #007bff;
     color: #fff;
     border: none;
