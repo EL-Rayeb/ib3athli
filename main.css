@@ -13,13 +13,6 @@
 main{
     margin-top: 100px;
 }
-.container {
-    max-width: 700px;
-    padding: 20px;
-    position: relative;
-    box-sizing: border-box;
-    overflow: hidden;
-}
 .card {
     position: relative;
     max-width: 400px;
