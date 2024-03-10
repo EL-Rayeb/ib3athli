@@ -1,0 +1,43 @@
+/*           Main css !!!!!!!!!!!! */
+.main-header{
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+main{
+    margin-top: 100px;
+}
+.container {
+    max-width: 700px;
+    padding: 20px;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.card {
+    position: relative;
+    max-width: 400px;
+}
+
+.card iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    overflow: hidden; /* Removes scrollbar */
+}
+
+.card-img-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url('fake.jpg'); /* toswira mahiyech mawjoud zeyid wojoudha awki 8ad ou khaw */
+    opacity: 0;
+}
