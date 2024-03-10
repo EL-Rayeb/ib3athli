@@ -27,6 +27,31 @@ body {
     z-index: 1;
 }
 
+.back-button{
+    position: fixed;
+    top: 20px;
+    background-color: #2e007d;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.back-button i:hover{ 
+    color: green;
+    font-size: larger;
+}
+.back-button a:link{
+    color: rgb(255, 255, 255);
+    font-size: xx-large;
+}
+.back-button:hover{
+    background-color: black;
+}
+
 #postsContainer {
     margin-top: 50px;
     padding-bottom: 40px;
