@@ -170,7 +170,7 @@ function fetchData() {
 
    // Fetch data initially and every 2 seconds
    fetchData();
-   setInterval(fetchData, 1000);
+   setInterval(fetchData, 4000);
 
    // Scroll to bottom submit button
    $('#sendButton').click(function() {
