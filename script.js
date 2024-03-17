@@ -140,12 +140,12 @@ function fetchData() {
            
            $('#postsContainer').append(postElement);
 
-           // Scroll to the bottom of the messages
-           $('html, body').animate({ scrollTop: $('#postsContainer')[0].scrollHeight }, 'slow');
+           // Scroll to the bottom of the messages  
+           setTimeout($('html, body').animate({ scrollTop: $('#postsContainer')[0].scrollHeight }, 'slow'),1000);
 
            // Clear the message input
-           $('#messageInput').val('');
-
+           
+            $('#messageInput').val('')
            // Submit form data to the server
            fetch(this.action, {
                method: 'POST',
@@ -172,7 +172,7 @@ function fetchData() {
 
    // Fetch data initially and every 2 seconds
    fetchData();
-   setInterval(fetchData, 4000);
+   setInterval(fetchData, 1000);
 
    // Scroll to bottom submit button
    $('#sendButton').click(function() {
