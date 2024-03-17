@@ -25,7 +25,6 @@ function fetchData() {
                    postElement.html(`
                    <fieldset style=" border:5px solid ${userColor+"50"}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;padding:5px; float: right; width:85%; margin-top:5px;margin-bottom:5px;background-color: ${userColor+"20"};   ">
                    <legend style="color:#fff;background-color: ${userColor+"50"}; padding: 5px ; border-top-left-radius: 10px; border-bottom-right-radius: 10px; float:right;" >${post.name} <i class="fa fa-check-double"></i></legend>
-                   
                    <div style="">
                    <strong>
                    <h3 style="color:#383838;padding:5px;">${post.message} </h3>
@@ -37,7 +36,7 @@ function fetchData() {
                    postElement.html(`
                    <fieldset style=" border:5px solid ${userColor+"50"}; border-top-right-radius: 10px; border-top-left-radius: 10px;width:85%; border-bottom-right-radius: 10px;padding:5px;display:block;background-color: ${userColor+"20"};">
                    <legend style="color:#fff;background-color: ${userColor+"50"}; padding: 5px ; border-bottom-left-radius: 10px; border-top-right-radius: 10px;position:absolute;">${post.name} <i class="fa fa-check-double"></i></legend>
-                   
+
                    <div style="margin-top:30px">
                    <strong>
                    <h3 style="color:#383838;padding:5px;">${post.message} </h3>
@@ -45,7 +44,6 @@ function fetchData() {
                    </fieldset>
                `);
                }
-               
                postsContainer.append(postElement);
            });
 
@@ -130,14 +128,14 @@ function fetchData() {
                </fieldset>
                <fieldset style=" border:5px solid ${userColor+"50"}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;padding:5px; float: right; width:85%; margin-top:5px;margin-bottom:5px;background-color: ${userColor+"20"};   ">
                <legend style="color:#fff;background-color: ${userColor+"50"}; padding: 5px ; border-top-left-radius: 10px; border-bottom-right-radius: 10px; float:right;" >${username} <i class="fa fa-chevron-down"></i></legend>
-               
+
                <div style="">
                <strong>
                <h3 style="color:#383838;padding:5px;text-size-adjust: 100%;">${message} </h3>
                </strong></div>
                </fieldset>
            `);
-           
+
            $('#postsContainer').append(postElement);
 
            // Scroll to the bottom of the messages  
@@ -221,10 +219,10 @@ function fetchData() {
            requestAnimationFrame(scrollDown);
        }
    }
-   
+
    // Start the infinite scroll
    scrollDown();
-   
+
    // Listen for scroll events
    window.addEventListener("scroll", () => {
        // Check if the user has scrolled up
@@ -234,6 +232,6 @@ function fetchData() {
        }
        lastScrollY = window.scrollY; // Update last scroll position
    });
-   
+
    let lastScrollY = window.scrollY; // Initialize last scroll position
 });
