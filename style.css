@@ -32,8 +32,8 @@ body {
 .back-button{
     position: fixed;
     top: 20px;
-    background-color: #ceb1ff;
-    color: #000000;
+    background-color: #000000;
+    color: #83afff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -42,8 +42,8 @@ body {
     align-items: center;
     text-align: center;
 }
-.back-button i:hover{ 
-    color: rgb(127, 220, 236);
+.back-button i:hover{
+    color: #83afff;
     font-size: larger;
 }
 .back-button a:link{
