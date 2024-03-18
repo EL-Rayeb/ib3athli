@@ -1,0 +1,155 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #d4fcb9;
+    color: #000000;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    min-height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+
+}
+
+.chat-header {
+    background-color: #55a563;
+    color: #af2424;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.back-button{
+    position: fixed;
+    top: 20px;
+    background-color: #ceb1ff;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.back-button i:hover{ 
+    color: rgb(127, 220, 236);
+    font-size: larger;
+}
+.back-button a:link{
+    color: rgb(255, 255, 255);
+    font-size: xx-large;
+}
+.back-button:hover{
+    background-color: black;
+}
+
+#postsContainer {
+    margin-top: 50px;
+    padding-bottom: 40px;
+}
+form{
+    justify-content: center;
+}
+.message-form {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #76c074;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+.message-form input {
+    flex: 1;
+    max-width: 700px;
+    margin-right: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+.submit-button  {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    text-align: center
+}
+
+.desktop-text {
+    display: block;
+}
+
+.message{
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+/* For phones */
+@media only screen and (max-width: 600px) {
+/* hides the submit*/
+    .button-hide{
+        display: none;
+    }
+    .desktop-text {
+        display: none;
+    }
+
+    .mobile-icon {
+        display: flex;
+        align-items: center;
+        right: 20px;
+    }
+    .container {
+        width: 100%;
+        margin: 0 ;
+        padding: 3px;
+        padding-top: 20px;
+        position: relative;
+        min-height: 100vh;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+}
+
+/* For desktops */
+@media only screen and (min-width: 601px) {
+    .mobile-icon {
+        display: none;
+    }
+}
+
+/* Scroll button styles */
+.scroll-button {
+    position: fixed;
+    bottom: 60px;
+    right: 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 10px;
+    display: none; /* Initially hidden */
+}
