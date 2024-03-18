@@ -23,7 +23,7 @@ function fetchData() {
                if (storedUsername===post.name) {
                    // If username is not stored, prompt user to input their name
                    postElement.html(`
-                   <fieldset style=" border:5px solid ${userColor+"50"}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;padding:5px; float: right; width:85%; margin-top:5px;margin-bottom:5px;background-color: ${userColor+"20"};   ">
+                   <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;padding:5px; float: right; width:85%; margin-top:5px;margin-bottom:5px;background-color: ${userColor+"20"};   ">
                    <legend style="color:#fff;background-color: ${userColor+"50"}; padding: 5px ; border-top-left-radius: 10px; border-bottom-right-radius: 10px; float:right;" >${post.name} <i class="fa fa-check-double"></i></legend>
                    <div style="">
                    <strong>
@@ -34,7 +34,7 @@ function fetchData() {
                } else {
                    // If username is stored, use it to send messages
                    postElement.html(`
-                   <fieldset style=" border:5px solid ${userColor+"50"}; border-top-right-radius: 10px; border-top-left-radius: 10px;width:85%; border-bottom-right-radius: 10px;padding:5px;display:block;background-color: ${userColor+"20"};">
+                   <fieldset style=" border:5px solid ${userColor}; border-top-right-radius: 10px; border-top-left-radius: 10px;width:85%; border-bottom-right-radius: 10px;padding:5px;display:block;background-color: ${userColor+"20"};">
                    <legend style="color:#fff;background-color: ${userColor+"50"}; padding: 5px ; border-bottom-left-radius: 10px; border-top-right-radius: 10px;position:absolute;">${post.name} <i class="fa fa-check-double"></i></legend>
 
                    <div style="margin-top:30px">
