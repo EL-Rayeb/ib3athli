@@ -1,6 +1,6 @@
 /*           Main css !!!!!!!!!!!! */
 .main-header{
-    background-color: #007bff;
+    background-color: #ff8800;
     color: #fff;
     padding: 10px;
     text-align: center;
@@ -8,6 +8,8 @@
     top: 0;
     left: 0;
     width: 100%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
     z-index: 1;
 }
 main{
