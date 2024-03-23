@@ -4,7 +4,7 @@ This is a simple chat application that allows users to send messages in real-tim
 
 ## Usage
 
-1. Enter your name and message in the form fields.
+1. Enter your name and chose a chat room to text.
 2. Click the "Send" button to submit your message.
 3. Your message will be displayed in the chat interface.
 4. Messages are updated in real-time without needing to refresh the page.
@@ -24,7 +24,6 @@ This is a simple chat application that allows users to send messages in real-tim
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-<h1 style="color:red">Preview</h1>
+<p style="color:red;font-size:xx-large;text-style:bold" align="center">Preview</p>
 
-<a href="https://postimg.cc/B805Rd8z" target="_blank"><img src="https://i.postimg.cc/B805Rd8z/Screenshot-2024-03-23-021325.png" alt="Screenshot-2024-03-23-021325"/></a> <a href="https://postimg.cc/sB4Pzw7g" target="_blank"><img src="https://i.postimg.cc/sB4Pzw7g/Screenshot-2024-03-23-021341.png" alt="Screenshot-2024-03-23-021341"/></a><a href="https://postimg.cc/BPX2x3yj" target="_blank"><img src="https://i.postimg.cc/BPX2x3yj/Screenshot-2024-03-23-021520.png" alt="Screenshot-2024-03-23-021520"/></a> <a href="https://postimg.cc/FdPjdzPt" target="_blank"><img src="https://i.postimg.cc/FdPjdzPt/Screenshot-2024-03-23-021400.png" alt="Screenshot-2024-03-23-021400"/></a><a href="https://postimg.cc/Wt3mRm3s" target="_blank"><img src="https://i.postimg.cc/Wt3mRm3s/Screenshot-2024-03-23-021447.png" alt="Screenshot-2024-03-23-021447"/></a>
-</a><a href="https://postimg.cc/TL2V3gJq" target="_blank"><img src="https://i.postimg.cc/TL2V3gJq/Screenshot-2024-03-23-021455.png" alt="Screenshot-2024-03-23-021455"/>
+<p align="center" target="_blank"><img src="https://i.postimg.cc/B805Rd8z/Screenshot-2024-03-23-021325.png" alt="Screenshot-2024-03-23-021325"/><a target="_blank"><img src="https://i.postimg.cc/sB4Pzw7g/Screenshot-2024-03-23-021341.png" alt="Screenshot-2024-03-23-021341"/></a><a target="_blank"><img src="https://i.postimg.cc/BPX2x3yj/Screenshot-2024-03-23-021520.png" alt="Screenshot-2024-03-23-021520"/></a><a target="_blank"><img src="https://i.postimg.cc/Wt3mRm3s/Screenshot-2024-03-23-021447.png" alt="Screenshot-2024-03-23-021447"/></a></a><br><p align="center"><img src="https://i.postimg.cc/TL2V3gJq/Screenshot-2024-03-23-021455.png" alt="Screenshot-2024-03-23-021455" with="100%" /></p></p>
