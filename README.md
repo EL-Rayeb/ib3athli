@@ -24,6 +24,6 @@ This is a simple chat application that allows users to send messages in real-tim
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-<p style="color:red;font-size:xx-large;text-style:bold" align="center">Preview</p>
+# <p style="color:red;font-size:xx-large;text-style:bold" align="center">Preview</p>
 
 <p align="center" target="_blank"><img src="https://i.postimg.cc/B805Rd8z/Screenshot-2024-03-23-021325.png" alt="Screenshot-2024-03-23-021325"/><a target="_blank"><img src="https://i.postimg.cc/sB4Pzw7g/Screenshot-2024-03-23-021341.png" alt="Screenshot-2024-03-23-021341"/></a><a target="_blank"><img src="https://i.postimg.cc/BPX2x3yj/Screenshot-2024-03-23-021520.png" alt="Screenshot-2024-03-23-021520"/></a><a target="_blank"><img src="https://i.postimg.cc/Wt3mRm3s/Screenshot-2024-03-23-021447.png" alt="Screenshot-2024-03-23-021447"/></a></a><br><p align="center"><img src="https://i.postimg.cc/TL2V3gJq/Screenshot-2024-03-23-021455.png" alt="Screenshot-2024-03-23-021455" with="100%" /></p></p>
