@@ -22,7 +22,7 @@ This is a simple chat application that allows users to send messages in real-tim
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
 
 # <p style="color:red;font-size:xx-large;text-style:bold" align="center"><a href="https://el-rayeb.github.io/ib3athli/">Preview</a></p>
 
