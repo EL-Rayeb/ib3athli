@@ -1,7 +1,7 @@
 
  // Function to fetch data from Google Sheets
  function fetchData() {
-    fetch('https://script.google.com/macros/s/AKfycbx7tUfYv9-ikirBOEHU3FCmPEme-gyIylBEyTk8ijIK1N95ehz-Gc_wIoK_kpRZ9r2C/exec')
+    fetch('https://script.google.com/macros/s/AKfycbyp9144IeSyBYioJGdOcCVCW7c5f0Zk_XvpfrlxX3u4Mv4wi2OS25jq5Sp8mmDezJM/exec')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');

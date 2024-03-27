@@ -1,7 +1,7 @@
 $(document).ready(function() {
     // Function to fetch data from Google Sheets
 function fetchData() {
-   fetch('https://script.google.com/macros/s/AKfycbzkUPuvLYnGs46DCLLoRZ4Ao0-i95nVP3_fuDA6mBxLPc2o0DjtkCvHwADLmsknNi_3/exec')
+   fetch('https://script.google.com/macros/s/AKfycbyp9144IeSyBYioJGdOcCVCW7c5f0Zk_XvpfrlxX3u4Mv4wi2OS25jq5Sp8mmDezJM/exec')
        .then(response => {
            if (!response.ok) {
                throw new Error('Network response was not ok');
