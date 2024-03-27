@@ -5,7 +5,7 @@ function doPost(e) {
   // Push the data to the rowData array
   rowData.push(new Date()); // Timestamp
   rowData.push(e.parameter.name); // Name
-  
+
   // Replace certain words in the message
   var message = e.parameter.message;
   message = replaceWords(message);
@@ -14,7 +14,7 @@ function doPost(e) {
 
   // Append the rowData to the sheet
   sheet.appendRow(rowData);
-  
+
   // Return an empty response after processing the form submission
   return ContentService.createTextOutput("");
 }
