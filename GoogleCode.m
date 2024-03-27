@@ -99,8 +99,11 @@ function doGet() {
 
 
 ================ ken mazel famma klem mahowech mitzed iktbo louta ==============
-var replacements = {
-    // words that aren't added yet
-    "sex": "s*x",
-    "nik": "n##k",
+function replaceWords(message) {
+  var replacements = {
+      // words that aren't added yet
+      "sex": "s*x",
+      "nik": "n##k",
+      // add more
+  }
 }
