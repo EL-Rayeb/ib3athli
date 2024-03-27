@@ -93,19 +93,26 @@ function fetchData() {
    }
    // Function to generate a color based on the hash code of the name
    function getUserColor(username) {
-       // Generate hash code
-       let hash = 0;
-       for (let i = 0; i < username.length; i++) {
-           hash = username.charCodeAt(i) + ((hash << 5) - hash);
-       }
-       // Convert hash code to hex color
-       let color = '#';
-       for (let i = 0; i < 3; i++) {
-           let value = (hash >> (i * 8)) & 0xFF;
-           color += ('00' + value.toString(16)).substr(-2);
-       }
-       return color;
-   }
+    // Check if the username matches any administration-related names
+    const adminNames = ["admin", "administrator", "admin1", "root", "superuser", "alii", "manager", "supervisor", "executive"];
+    if (adminNames.includes(username.toLowerCase())) {
+        return "#ff0000"; // Return red color
+    }
+
+    // Generate hash code for other usernames
+    let hash = 0;
+    for (let i = 0; i < username.length; i++) {
+        hash = username.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    
+    // Convert hash code to hex color
+    let color = '#';
+    for (let i = 0; i < 3; i++) {
+        let value = (hash >> (i * 8)) & 0xFF;
+        color += ('00' + value.toString(16)).substr(-2);
+    }
+    return color;
+    }
 
    // Function to send message with username
    function sendMessage(username) {
