@@ -46,20 +46,13 @@ body {
     color: green;
     font-size: larger;
 }
+
 .back-button a:link{
     color: rgb(255, 255, 255);
     font-size: xx-large;
 }
 .back-button:hover{
     background-color: black;
-}
-
-#postsContainer {
-    margin-top: 50px;
-    padding-bottom: 40px;
-}
-form{
-    justify-content: center;
 }
 .message-form {
     position: fixed;

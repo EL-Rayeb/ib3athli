@@ -1,7 +1,7 @@
 $(document).ready(function() {
     // Function to fetch data from Google Sheets
 function fetchData() {
-   fetch('https://script.google.com/macros/s/AKfycbxs5blz5eN4Q2_C4Uw85TKA9yn2DJtriZawcI7mLTM7PKbFPvg4Rn6UMbll0xXeBxRp/exec')
+   fetch('https://script.google.com/macros/s/AKfycbzY44-trkDJK7VCkY89m6jETLqnW0fRCtBUVMXXlTm1zDS9IjsCV4gC6Sb0u6I9WqXX/exec')
        .then(response => {
            if (!response.ok) {
                throw new Error('Network response was not ok');
@@ -241,4 +241,31 @@ function fetchData() {
    });
 
    let lastScrollY = window.scrollY; // Initialize last scroll position
+
+   function replaceSpecialCharacters(message) {
+        // Define the replacements
+        const replacements = {
+            "<": "&lt;",
+            ">": "&gt;"
+            // Add more replacements as needed
+        };
+
+        // Iterate through the replacements and replace characters in the message
+        for (const [key, value] of Object.entries(replacements)) {
+            message = message.replace(new RegExp(key, 'g'), value);
+        }
+
+        return message;
+    }
+
+    // Function to handle incoming messages and display them
+    function displayMessage(message) {
+        // Sanitize the message to replace special characters with HTML entities
+        const sanitizedMessage = replaceSpecialCharacters(message);
+
+        // Display the sanitized message in your chat interface
+        // Replace this line with your actual code to display the message
+        console.log(sanitizedMessage); // Example: Output the sanitized message to the console
+    }
+
 });

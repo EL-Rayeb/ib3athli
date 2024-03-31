@@ -234,4 +234,36 @@ function fetchData() {
    });
 
    let lastScrollY = window.scrollY; // Initialize last scroll position
+
+   // Function to replace special characters with HTML entities
+    function replaceSpecialCharacters(message) {
+        // Define the replacements
+        const replacements = {
+            "<": "&lt;",
+            ">": "&gt;"
+            // Add more replacements as needed
+        };
+
+        // Iterate through the replacements and replace characters in the message
+        for (const [key, value] of Object.entries(replacements)) {
+            message = message.replace(new RegExp(key, 'g'), value);
+        }
+
+        return message;
+    }
+
+    // Function to handle incoming messages and display them
+    function displayMessage(message) {
+        // Sanitize the message to replace special characters with HTML entities
+        const sanitizedMessage = replaceSpecialCharacters(message);
+
+        // Display the sanitized message in your chat interface
+        // Replace this line with your actual code to display the message
+        console.log(sanitizedMessage); // Example: Output the sanitized message to the console
+    }
+
+    // Example usage:
+    const originalMessage = "<style>";
+    displayMessage(originalMessage);
+
 });
