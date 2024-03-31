@@ -5,7 +5,7 @@ function doPost(e) {
   // Push the data to the rowData array
   rowData.push(new Date()); // Timestamp
   rowData.push(e.parameter.name); // Name
-
+  
   // Replace certain words in the message
   var message = e.parameter.message;
   message = replaceWords(message);
@@ -14,7 +14,7 @@ function doPost(e) {
 
   // Append the rowData to the sheet
   sheet.appendRow(rowData);
-
+  
   // Return an empty response after processing the form submission
   return ContentService.createTextOutput("");
 }
@@ -67,7 +67,8 @@ function replaceWords(message) {
     "ta7an": "ta#an",
     "9a7ba": "9a#ba",
     "9a7 ba": "9a#ba"
-};
+  };
+  
   // Iterate through the replacements and replace words in the message
   for (var word in replacements) {
     if (replacements.hasOwnProperty(word)) {
