@@ -66,7 +66,9 @@ function replaceWords(message) {
     "5arya": "5#ra",
     "ta7an": "ta#an",
     "9a7ba": "9a#ba",
-    "9a7 ba": "9a#ba"
+    "9a7 ba": "9a#ba",
+    // Code replacement addition
+    "<style>": "style",
   };
   
   // Iterate through the replacements and replace words in the message
