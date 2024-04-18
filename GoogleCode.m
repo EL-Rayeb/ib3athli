@@ -67,9 +67,11 @@ function replaceWords(message) {
     "ta7an": "ta#an",
     "9a7ba": "9a#ba",
     "9a7 ba": "9a#ba",
-    "zabb" : "z##b",
+    "zabb": "z##b",
     // Code replacement addition
     "<style>": "style",
+    "gay": "g#y",
+    "gaay": "g#y",
   };
   
   // Iterate through the replacements and replace words in the message

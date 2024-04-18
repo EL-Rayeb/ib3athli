@@ -1,5 +1,5 @@
 # Chat App
-
+<img src="logo.jpg" alt="HTML5">
 This is a simple chat application that allows users to send messages in real-time. The messages are stored in Google Sheets.
 
 ## Usage
