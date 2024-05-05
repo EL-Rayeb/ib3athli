@@ -32,7 +32,7 @@ body {
 .back-button{
     position: fixed;
     top: 20px;
-    background-color: #2e007d;
+    background-color: #1482ff;
     color: #ffffff;
     border: none;
     border-radius: 5px;
@@ -43,7 +43,7 @@ body {
     text-align: center;
 }
 .back-button i:hover{ 
-    color: green;
+    color: rgb(255, 255, 255);
     font-size: larger;
 }
 
